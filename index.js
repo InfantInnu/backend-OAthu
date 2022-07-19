@@ -7,7 +7,7 @@ const passportSetup = require("./passport")
 const passport = require("passport");
 const authRoute = require("./routes/auth")
 const app = express()
-
+const PORT=process.env.PORT||5000
 
 app.use(cookieSession(
     {name:"session",
@@ -28,6 +28,6 @@ app.use(cors({
 
 app.use("/auth" , authRoute)
 
-app.listen("5000", () => {
+app.listen(PORT, () => {
     console.log("Server is running!")
 })
